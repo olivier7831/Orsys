@@ -55,8 +55,8 @@ public class CasTest {
 	}
 	
 	@Test
-	public void testCodePostaleNonEntier() throws NumberFormatException, WrongCovidInputException {
-		exception.expect(NumberFormatException.class);
+	public void testCodePostaleNonEntier() throws WrongCovidInputException {
+		exception.expect(WrongCovidInputException.class);
 		cas.setCode_postale("abcde");
 	}
 	

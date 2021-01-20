@@ -68,11 +68,15 @@ public class Cas {
 		return code_postale;
 	}
 
-	public void setCode_postale(String code_postale) throws WrongCovidInputException, NumberFormatException {
+	public void setCode_postale(String code_postale) throws WrongCovidInputException {
 		if (code_postale.length() != 5) {
 			throw new WrongCovidInputException("Le code postale doit être de longueur 5");
 		}
-		Integer.parseInt(code_postale);
+		try {
+			Integer.parseInt(code_postale);
+		} catch (NumberFormatException e) {
+			throw new WrongCovidInputException("Le code postale n'est pas un format numéraire");
+		}
 		this.code_postale = code_postale;
 	}
 

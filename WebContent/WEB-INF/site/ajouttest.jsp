@@ -16,19 +16,19 @@
 				<input type="hidden" name="action" value="udpatetest"/>
 				<div class="mb-3">
 					<label class="form-label">Jour: </label><input
-						class="form-control" type="text" name="jour"/>
+						class="form-control" type="text" name="jour" pattern="[0-9]{1,2}" required/>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mois: </label><input class="form-control"
-						type="text" name="mois"/>
+						type="text" name="mois" pattern="[0-9]{1,2}" required/>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Année: </label><input
-						class="form-control" type="text" name="annee"/>
+						class="form-control" type="text" name="annee" pattern="[0-9]{1,2}" required/>
 				</div>
 				<div class="mb-3">
 				<label class="form-label">Etat: </label> <input
-						class="form-control" type="number" name="etat"/>
+						class="form-control" type="number" name="etat" pattern="-*1{1}" required/>
 				</div>
 				<div>
 				<label class="form-label">Test: </label>

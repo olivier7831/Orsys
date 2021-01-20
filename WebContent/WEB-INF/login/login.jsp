@@ -11,8 +11,8 @@
 <body>
 <div class="container">
 <form action="" method="post">
-	<div class="mb-3"><label class="form-label">Login: </label><input class="form-control" type="text" name="login"/></div>
-	<div class="mb-3"><label class="form-label">Password: </label><input class="form-control" type="text" name="password"/></div>
+	<div class="mb-3"><label class="form-label">Login: </label><input class="form-control" type="text" name="login" pattern="[a-zA-Z0-9]{5,9}" required/></div>
+	<div class="mb-3"><label class="form-label">Password: </label><input class="form-control" type="text" name="password" pattern="[a-zA-Z0-9]{5,9}" required/></div>
 	<div><input class="btn btn-primary" type="submit" value="Valider..."/></div>
 </form>
 </div>
