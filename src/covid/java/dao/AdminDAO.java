@@ -1,0 +1,46 @@
+package covid.java.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import covid.java.Admin;
+
+public class AdminDAO extends DAO<Admin> {
+
+	public AdminDAO(Connection connection) {
+		super(connection);
+	}
+
+	@Override
+	public void add(Admin admin) throws SQLException {
+		PreparedStatement prst = connection.prepareStatement("INSERT INTO admin(login, password) VALUES (?, ?)");
+		prst.setString(1, admin.getLogin());
+		prst.setString(2, admin.getPassword());
+
+		prst.executeUpdate();
+		
+	}
+
+	@Override
+	public ArrayList<Admin> get() throws SQLException {
+		ArrayList<Admin> collection=null;
+		
+		collection = new ArrayList<Admin>();
+		Statement st = connection.createStatement();
+		ResultSet rs = st.executeQuery("select * from admin");
+		while(rs.next()) {
+			Admin a = new Admin();
+			a.setId_admin(rs.getLong("id_admin"));
+			a.setLogin(rs.getString("login"));
+			a.setPassword(rs.getString("password"));
+			collection.add(a);
+		}
+		return collection;
+	}
+	
+	
+}
