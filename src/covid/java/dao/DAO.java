@@ -1,17 +1,17 @@
 package covid.java.dao;
 
-import java.sql.Connection;
+//import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import covid.java.tests.WrongCovidInputException;
 
 public abstract class DAO<T> {
-	protected Connection connection;
+//	protected Connection connection;
 
-	public DAO(Connection connection) {
+	public DAO() {
 		super();
-		this.connection = connection;
+//		this.connection = connection;
 	}
 	
 	public abstract void add(T object) throws SQLException;

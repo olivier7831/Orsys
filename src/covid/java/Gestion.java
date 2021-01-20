@@ -1,6 +1,5 @@
 package covid.java;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -8,11 +7,10 @@ import covid.java.dao.AdminDAO;
 import covid.java.dao.CasDAO;
 import covid.java.dao.TestPcrDAO;
 import covid.java.tests.WrongCovidInputException;
-import covid.java.dao.Connecteur;
 
 public class Gestion {
 	private static Gestion gestion=null;
-	private Connection connectionDAO=null;
+//	private Connection connectionDAO=null;
 	private AdminDAO adminDOA=null;
 	private CasDAO casDAO=null;
 	private TestPcrDAO testPcrDAO=null;
@@ -22,10 +20,10 @@ public class Gestion {
 	
 	private Gestion() {
 		super();
-		connectionDAO = (new Connecteur()).getConnection();
-		adminDOA = new AdminDAO(connectionDAO);
-		casDAO = new CasDAO(connectionDAO);
-		testPcrDAO = new TestPcrDAO(connectionDAO);
+//		connectionDAO = (new Connecteur()).getConnection();
+		adminDOA = new AdminDAO();
+		casDAO = new CasDAO();
+		testPcrDAO = new TestPcrDAO();
 		user = new Admin();
 		error = new StringBuilder();
 	}

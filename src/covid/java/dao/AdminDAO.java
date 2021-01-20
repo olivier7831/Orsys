@@ -11,12 +11,13 @@ import covid.java.Admin;
 
 public class AdminDAO extends DAO<Admin> {
 
-	public AdminDAO(Connection connection) {
-		super(connection);
+	public AdminDAO() {
+		super();
 	}
 
 	@Override
 	public void add(Admin admin) throws SQLException {
+		Connection connection = (new Connecteur()).getConnection();
 		PreparedStatement prst = connection.prepareStatement("INSERT INTO admin(login, password) VALUES (?, ?)");
 		prst.setString(1, admin.getLogin());
 		prst.setString(2, admin.getPassword());
@@ -29,6 +30,7 @@ public class AdminDAO extends DAO<Admin> {
 	public ArrayList<Admin> get() throws SQLException {
 		ArrayList<Admin> collection=null;
 		
+		Connection connection = (new Connecteur()).getConnection();
 		collection = new ArrayList<Admin>();
 		Statement st = connection.createStatement();
 		ResultSet rs = st.executeQuery("select * from admin");

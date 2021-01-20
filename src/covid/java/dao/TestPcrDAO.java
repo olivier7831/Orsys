@@ -13,12 +13,14 @@ import covid.java.tests.WrongCovidInputException;
 
 public class TestPcrDAO extends DAO<TestPcr> {
 
-	public TestPcrDAO(Connection connection) {
-		super(connection);
+	public TestPcrDAO() {
+		super();
 	}
 
 	@Override
 	public void add(TestPcr test) throws SQLException {
+		Connection connection = (new Connecteur()).getConnection();
+		
 		PreparedStatement prst = connection.prepareStatement("INSERT INTO testpcr(jour, mois, annee, resultat, id_cas) VALUES (?, ?, ?, ?, ?)");
 		prst.setInt(1, test.getJour());
 		prst.setInt(2, test.getMois());
@@ -32,6 +34,7 @@ public class TestPcrDAO extends DAO<TestPcr> {
 	@Override
 	public ArrayList<TestPcr> get() throws SQLException, WrongCovidInputException {
 		ArrayList<TestPcr> collection=null;
+		Connection connection = (new Connecteur()).getConnection();
 		
 		collection = new ArrayList<TestPcr>();
 		Statement st = connection.createStatement();
@@ -52,6 +55,7 @@ public class TestPcrDAO extends DAO<TestPcr> {
 	
 	public ArrayList<TestPcr> get(long id_cas) throws SQLException, WrongCovidInputException {
 		ArrayList<TestPcr> collection = new ArrayList<TestPcr>();
+		Connection connection = (new Connecteur()).getConnection();
 		TestPcr testPcr;
 		int jour;
 		int mois;

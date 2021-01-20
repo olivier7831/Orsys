@@ -12,12 +12,14 @@ import covid.java.tests.WrongCovidInputException;
 
 public class CasDAO extends DAO<Cas> {
 
-	public CasDAO(Connection connection) {
-		super(connection);
+	public CasDAO() {
+		super();
 	}
 
 	@Override
 	public void add(Cas cas) throws SQLException {
+		Connection connection = (new Connecteur()).getConnection();
+		
 		PreparedStatement prst = connection.prepareStatement("INSERT INTO cas(nom_complet, telephone, adresse, code_postale, etat) VALUES (?, ?, ?, ?, ?)");
 		prst.setString(1, cas.getNom_complet());
 		prst.setString(2, cas.getTelephone());
@@ -31,6 +33,7 @@ public class CasDAO extends DAO<Cas> {
 	@Override
 	public ArrayList<Cas> get() throws SQLException, WrongCovidInputException {
 		ArrayList<Cas> collection=null;
+		Connection connection = (new Connecteur()).getConnection();
 		
 		collection = new ArrayList<Cas>();
 		Statement st = connection.createStatement();
