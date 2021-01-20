@@ -20,6 +20,15 @@ public class ListCas {
 		return false;
 	}
 	
+	public static Cas get(long Id) {
+		for(Cas cas: listCas) {
+			if (cas.getId_cas() == Id) {
+				return cas;
+			}
+		}
+		return null;
+	}
+	
 	public static String afficher() {
 		StringBuilder resultat = new StringBuilder();
 		

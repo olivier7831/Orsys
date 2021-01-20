@@ -42,6 +42,10 @@ public class TestPcr {
 		return id_teste;
 	}
 
+	public Cas getCas() {
+		return ListCas.get(getId_teste());
+	}
+	
 	public int getResultat() {
 		return resultat;
 	}
@@ -50,8 +54,6 @@ public class TestPcr {
 		this.id_testpcr = id;
 	}
 
-	
-	
 	public long getId_testpcr() {
 		return id_testpcr;
 	}

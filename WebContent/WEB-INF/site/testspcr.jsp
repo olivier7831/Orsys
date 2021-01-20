@@ -10,7 +10,7 @@
 </head>
 <jsp:directive.include file="../include/header.jsp" />
 <body>
-	<form action="Index" method="get">
+	<form action="Index" method="post">
 		<input type="hidden" name="action" value="formulairetest"/>
 		<div class="mb-3">
 		<input class="btn btn-primary mb-3" type="submit"
@@ -18,7 +18,7 @@
 		</div>
 	</form>
 	<table class="table table-striped">
-		<tr><th>Id</th><th>Jour</th><th>Mois</th><th>Annee</th><th>Resultat</th><th>Id(cas)</th>
+		<tr><th>Id</th><th>Jour</th><th>Mois</th><th>Annee</th><th>Resultat</th><th>Cas</th>
 		</tr>
 		<c:forEach var="test" items="${gestion.getTestList()}">
 			<tr>
@@ -27,7 +27,8 @@
 			<td>${test.getMois()}</td>
 			<td>${test.getAnnee()}</td>
 			<td>${test.getResultat()}</td>
-			<td>${test.getId_teste()}</td>
+			<td>${test.getCas().getNom_complet()}</td>
+			<td></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<div class="mb-3">
-			<form action="Index" method="get">
+			<form action="Index" method="post">
 				<input type="hidden" name="action" value="udpatetest"/>
 				<div class="mb-3">
 					<label class="form-label">Jour: </label><input

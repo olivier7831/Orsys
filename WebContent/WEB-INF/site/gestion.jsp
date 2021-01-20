@@ -10,7 +10,7 @@
 </head>
 <jsp:directive.include file="../include/header.jsp" />
 <body>
-	<form action="Index" method="get">
+	<form action="Index" method="post">
 		<input type="hidden" name="action" value="formulairecas"/>
 		<div class="mb-3">
 		<input class="btn btn-primary mb-3" type="submit"
