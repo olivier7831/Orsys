@@ -109,7 +109,7 @@ public class Index extends HttpServlet {
 				int jour = Integer.parseInt(request.getParameter("jour"));
 				int mois = Integer.parseInt(request.getParameter("mois"));
 				int annee = Integer.parseInt(request.getParameter("annee"));
-				int id_teste = Integer.parseInt(request.getParameter("cas"));
+				int id_teste = Integer.parseInt(request.getParameter("casteste"));
 				int resultat = Integer.parseInt(request.getParameter("etat"));
 				test = new TestPcr(jour, mois, annee, id_teste, resultat);
 				gestion.getCasList();

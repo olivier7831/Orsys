@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" >
 </head>
+<jsp:directive.include file="../include/header.jsp" />
 <body>
 	<div class="container">
 		<div class="mb-3">
@@ -26,16 +27,20 @@
 						class="form-control" type="text" name="annee"/>
 				</div>
 				<div class="mb-3">
-					<label class="form-label">Id du cas: </label> <input
-						class="form-control" type="number" name="cas"/>
-				</div>
-				<div class="mb-3">
 				<label class="form-label">Etat: </label> <input
 						class="form-control" type="number" name="etat"/>
 				</div>
+				<div>
+				<label class="form-label">Test: </label>
+				<select class="form-select form-select-lg mb-3" name="casteste">
+					<option value="">--Select--</option>
+					<c:forEach var="c" items="${gestion.getCasList()}">
+						<option value="${c.getId_cas()}" selected>${c.getNom_complet()}</option>
+					</c:forEach>
+				</select>
+				</div>
 				<div class="mb-3">
-					<input class="btn btn-primary mb-3" type="submit"
-							value="Ajouter">
+					<input class="btn btn-primary mb-3" type="submit" value="Ajouter"/>
 				</div>
 			</form>
 		</div>

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" >
 </head>
+<jsp:directive.include file="../include/header.jsp" />
 <body>
 	<div class="container">
 		<div class="mb-3">

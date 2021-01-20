@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<jsp:directive.include file="../include/header.jsp" />
 <body>
 ${gestion.getError()}
 </body>
