@@ -8,7 +8,7 @@
 </target>
 <target name="compile">
 	<mkdir dir="build\classes\covid\java"/>
-	<javac destdir="build\classes" srcdir="src\covid\java" classpath="C:\Users\Administrator\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar;C:\Users\Administrator\.p2\pool\plugins\org.junit_4.13.0.v20200204-1500.jar"/>
+	<javac debug="on" destdir="build\classes" srcdir="src\covid\java" classpath="C:\Users\Administrator\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar;C:\Users\Administrator\.p2\pool\plugins\org.junit_4.13.0.v20200204-1500.jar"/>
 </target>
 <target name="tests" depends="compile">
 <jacoco:coverage destfile="reportCoverage">
