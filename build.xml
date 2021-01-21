@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project>
+<project xmlns:jacoco="antlib:org.jacoco.ant">
+    <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+        <classpath path="C:\jacoco-0.8.6\lib\jacocoant.jar"/>
+    </taskdef>
 <target name="clean">
 	<delete dir="build\classes\covid\java"/>
 </target>
@@ -8,7 +11,8 @@
 	<javac destdir="build\classes" srcdir="src\covid\java" classpath="C:\Users\Administrator\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar;C:\Users\Administrator\.p2\pool\plugins\org.junit_4.13.0.v20200204-1500.jar"/>
 </target>
 <target name="tests" depends="compile">
-<junit>
+<jacoco:coverage destfile="reportCoverage">
+<junit fork="true" forkmode="once">
 	<classpath>
 	<pathelement location="C:\Users\Administrator\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
 	<pathelement location="C:\Users\Administrator\.p2\pool\plugins\org.junit_4.13.0.v20200204-1500.jar"/>
@@ -18,5 +22,28 @@
 	<test name="covid.java.tests.AdminTest" outfile="resultAdminTest"/>
 	<test name="covid.java.tests.CasTest" outfile="resultCasTest"/>
 </junit>
+</jacoco:coverage>
+</target>
+<target name="report" depends="tests">
+	<jacoco:report>
+		<executiondata>
+			<file file="reportCoverage"/>
+		</executiondata>
+		<structure name="coverage">
+			<classfiles>
+				<fileset dir="build\classes\covid\java">
+					<exclude name="dao/*.class"/>
+					<exclude name="tests/*.class"/>
+				</fileset>
+			</classfiles>
+			<sourcefiles encoding="UTF-8">
+				<fileset dir="src\covid\java">
+					<exclude name="dao/*.class"/>
+					<exclude name="tests/*.class"/>
+				</fileset>
+			</sourcefiles>
+		</structure>
+		<xml destfile="coverage.xml"/>
+	</jacoco:report>
 </target>
 </project>

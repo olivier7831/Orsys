@@ -44,4 +44,36 @@ public class Admin {
 			return true;
 		}
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (this == obj)
+			return true;
+		if (getClass() != obj.getClass())
+			return false;
+		Admin other = (Admin) obj;
+		if (login == null || other.login == null) {
+			return false;
+		}
+		if (password == null || other.password == null) {
+			return false;
+		}
+		if (!login.equals(other.getLogin()) || !password.equals(other.getPassword()))
+			return false;
+		
+		return true;
+	}
+	
+	
 }

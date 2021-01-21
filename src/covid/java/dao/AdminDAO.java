@@ -44,5 +44,22 @@ public class AdminDAO extends DAO<Admin> {
 		return collection;
 	}
 	
-	
+	public static Admin getLogin(String login) throws SQLException {
+		Admin admin=null;
+		
+		Connection connection = (new Connecteur()).getConnection();
+		admin = new Admin();
+		PreparedStatement prst = connection.prepareStatement("select * from admin where login = ?");
+		prst.setString(1, login);
+		ResultSet rs = prst.executeQuery();
+		
+		if (rs.next()) {
+			admin.setId_admin(rs.getLong("id_admin"));
+			admin.setLogin(rs.getString("login"));
+			admin.setPassword(rs.getString("password"));
+		
+			return admin;
+		}
+		return null;
+	}
 }

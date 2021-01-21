@@ -3,3 +3,6 @@
 /.scannerwork/**
 resultAdminTest.xml
 resultCasTest.xml
+coverage.xml
+jacoco.exec
+reportCoverage

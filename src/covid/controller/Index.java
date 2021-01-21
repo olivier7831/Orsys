@@ -15,6 +15,7 @@ import covid.java.Admin;
 import covid.java.Cas;
 import covid.java.Gestion;
 import covid.java.TestPcr;
+import covid.java.dao.AdminDAO;
 import covid.java.tests.WrongCovidInputException;
 
 /**
@@ -59,11 +60,25 @@ public class Index extends HttpServlet {
 				user.setLogin(request.getParameter("login"));
 			if (request.getParameter("password") != null)
 				user.setPassword(request.getParameter("password"));
-			if (!user.isValidAdminLogin()) {
-				rd = request.getRequestDispatcher("WEB-INF/login/login.jsp");
-				rd.include(request, response);
-			} else {
-				rd = request.getRequestDispatcher("WEB-INF/site/gestion.jsp");
+//			if (!user.isValidAdminLogin()) {
+//				rd = request.getRequestDispatcher("WEB-INF/login/login.jsp");
+//				rd.forward(request, response);
+//			} else {
+//				rd = request.getRequestDispatcher("WEB-INF/site/gestion.jsp");
+//				rd.include(request, response);
+//			}
+			try {
+				if (!user.equals(gestion.getAdmin(user.getLogin())) || !user.isValidAdminLogin()) {
+					rd = request.getRequestDispatcher("WEB-INF/login/login.jsp");
+					rd.include(request, response);
+				} else {
+					rd = request.getRequestDispatcher("WEB-INF/site/gestion.jsp");
+					rd.include(request, response);
+				}
+			} catch (SQLException | ServletException | IOException e1) {
+				gestion.addError(e1);
+				e1.printStackTrace();
+				rd = request.getRequestDispatcher("WEB-INF/site/error.jsp");
 				rd.include(request, response);
 			}
 			break;

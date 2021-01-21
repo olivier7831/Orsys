@@ -89,4 +89,8 @@ public class Gestion {
 	public String getError() {
 		return error.toString();
 	}
+	
+	public Admin getAdmin(String login) throws SQLException {
+		return this.getAdminDOA().getLogin(login);
+	}
 }
