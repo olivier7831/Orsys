@@ -18,7 +18,7 @@ public class Gestion {
 	private long id;
 	private StringBuilder error;
 	
-	private Gestion() {
+	public Gestion() {
 		super();
 //		connectionDAO = (new Connecteur()).getConnection();
 		adminDOA = new AdminDAO();
@@ -26,12 +26,6 @@ public class Gestion {
 		testPcrDAO = new TestPcrDAO();
 		user = new Admin();
 		error = new StringBuilder();
-	}
-
-	public static Gestion getGestionInstance() {
-		if (gestion == null)
-			gestion = new Gestion();
-		return gestion;
 	}
 
 	public AdminDAO getAdminDOA() {

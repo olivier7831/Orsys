@@ -45,7 +45,7 @@ public class Index extends HttpServlet {
 		RequestDispatcher rd;
 		
 		if (session.getAttribute("gestion") == null) {
-			session.setAttribute("gestion", Gestion.getGestionInstance());
+			session.setAttribute("gestion", new Gestion());
 		}
 		gestion = (Gestion) session.getAttribute("gestion");
 		if (request.getParameter("action") == null) {
@@ -55,7 +55,7 @@ public class Index extends HttpServlet {
 		}
 		switch (action) {
 		case "login":
-			Admin user = Gestion.getGestionInstance().getUser();
+			Admin user = gestion.getUser();
 			if (request.getParameter("login") != null)
 				user.setLogin(request.getParameter("login"));
 			if (request.getParameter("password") != null)
