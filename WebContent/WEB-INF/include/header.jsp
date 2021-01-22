@@ -21,6 +21,8 @@
 						aria-current="page" href="Index?action=login">Cas</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="Index?action=affichetests">Tests PCR</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="Index?action=deconnection">Logout</a></li>
 				</ul>
 			</div>
 		</div>

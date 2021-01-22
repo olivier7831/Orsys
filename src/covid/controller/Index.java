@@ -148,6 +148,11 @@ public class Index extends HttpServlet {
 			rd = request.getRequestDispatcher("WEB-INF/site/testspcrfiltre.jsp");
 			rd.include(request, response);
 			break;
+		case "deconnection":
+			session.invalidate();
+			rd = request.getRequestDispatcher("WEB-INF/login/login.jsp");
+			rd.include(request, response);
+			break;
 		}
 	}
 
