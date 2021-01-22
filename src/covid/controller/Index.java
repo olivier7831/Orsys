@@ -15,7 +15,6 @@ import covid.java.Admin;
 import covid.java.Cas;
 import covid.java.Gestion;
 import covid.java.TestPcr;
-import covid.java.dao.AdminDAO;
 import covid.java.tests.WrongCovidInputException;
 
 /**
