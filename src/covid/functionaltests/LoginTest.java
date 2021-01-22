@@ -25,7 +25,7 @@ import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class LoginPasswordWrongTest {
+public class LoginTest {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
